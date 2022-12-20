@@ -1,0 +1,90 @@
+{
+  "name": "file-navigation",
+  "displayName": "File Navigation",
+  "publisher": "IvanGrigorov",
+  "icon": "assets/anchor.png",
+  "keywords": ["File", "Navigation", "Anchors"],
+  "description": "Allows you to save anchors for the currently opened file.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "menus": {
+      "editor/context": [
+        {
+          "command": "file-navigation.selectLine"
+        }
+      ],
+      "view/item/context": [
+				{
+					"command": "file-navigation.deleteEntry",
+					"when": "view == package-bookmarks"
+				}
+      ]
+    },
+    "commands": [
+      {
+				"command": "file-navigation.deleteEntry",
+				"title": "Delete"
+			},
+      {
+        "command": "file-navigation.selectLine",
+        "title": "Select line"
+      },
+      {
+        "command": "file-navigation.goToLine",
+        "title": "Go To Line"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "package-explorer",
+          "title": "Package Explorer",
+          "icon": "assets/package-explorer.svg"
+        }
+      ]
+    },
+    "views": {
+      "package-explorer": [
+        {
+          "id": "package-bookmarks",
+          "name": "Bookmarks"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.74.0",
+    "@types/glob": "^8.0.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "@typescript-eslint/eslint-plugin": "^5.45.0",
+    "@typescript-eslint/parser": "^5.45.0",
+    "eslint": "^8.28.0",
+    "glob": "^8.0.3",
+    "mocha": "^10.1.0",
+    "typescript": "^4.9.3",
+    "@vscode/test-electron": "^2.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/IvanGrigorov/file-anchor-navigation.git"
+  }
+}
