@@ -6,7 +6,7 @@ It is easy for direct navigation for important parts of large documents.
 
 You can save your anchor with title or will take the content of the line as title
 
-![Alt Text](https://raw.githubusercontent.com/IvanGrigorov/workspace-colorizer/master/assets/workspace-colorizer.png)
+![Alt Text](https://raw.githubusercontent.com/IvanGrigorov/file-anchor-navigation/master/assets/file-mavigation-example.gif)
 
 ## Support
 
